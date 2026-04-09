@@ -1,0 +1,29 @@
+class Solution {
+
+    public int mysqrt(long x) {
+
+        long low = 1, high = x, mid, ans = 0;
+
+        while (low <= high) {
+
+            mid = low + (high - low) / 2;
+
+            if (mid <= x / mid) {   
+                ans = mid;
+                low = mid + 1;
+            } 
+            else {
+                high = mid - 1;
+            }
+        }
+
+        return (int) ans;
+    }
+
+    public int arrangeCoins(int n) {
+
+        long m = n;
+
+        return (mysqrt(8 * m + 1) - 1) / 2;
+    }
+}
